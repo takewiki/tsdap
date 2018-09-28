@@ -119,16 +119,43 @@ replaceStr <- function (x,pattern,newStr)
   str_replace(x,pattern,newStr);
 }
 
+#' 从Excel中读取数据
+#'
+#' @param file   文件名
+#' @param sheet  页签名
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples getDataFromExcel('aa.xlsx',1)
 getDataFromExcel <- function(file,sheet=1)
 {
   res <- read_excel(file,sheet)
   return(res)
 };
+#' 将向量转化为SQL-where的械
+#'
+#' @param data 数据
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples Excel2sqlstring('aa');
 Excel2sqlstring <- function (data)
 {
   paste0("'",data,"',");
 }
 
+#' 将数据写入Excel
+#'
+#' @param data  数据
+#' @param fileName  文件名
+#' @param sheetName  页签名
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples writeDataToExcel（letters,'samle.xlsx','sheet1'）
 writeDataToExcel <- function (data,fileName,sheetName)
 {
   
